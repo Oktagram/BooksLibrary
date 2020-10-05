@@ -27,7 +27,7 @@ namespace BooksLibrary.API.Controllers
         }
 
         [HttpPost("/books/order")]
-        public async Task<IActionResult> OrderBook()
+        public async Task<IActionResult> BookOrder()
         {
             throw new NotImplementedException();
         }
