@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MediatR;
 
 namespace BooksLibrary.Application.Books.Commands.RemoveBook
 {
-    public class RemoveBookCommand
+    public class RemoveBookCommand : IRequest
     {
         public RemoveBookCommand(int bookId)
         {

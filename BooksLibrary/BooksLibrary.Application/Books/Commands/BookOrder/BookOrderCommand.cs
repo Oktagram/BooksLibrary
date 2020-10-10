@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MediatR;
+using System;
 
 namespace BooksLibrary.Application.Books.Commands.BookOrder
 {
-    public class BookOrderCommand
+    public class BookOrderCommand : IRequest
     {
         public int AuthorId { get; set; }
         public int BookGenreId { get; set; }

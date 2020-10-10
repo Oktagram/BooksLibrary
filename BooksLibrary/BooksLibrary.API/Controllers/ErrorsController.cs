@@ -21,13 +21,12 @@ namespace BooksLibrary.API.Controllers
         {
             var context = HttpContext.Features.Get<IExceptionHandlerFeature>();
             var exception = context.Error;
-            var httpStatusCode = _exceptionToStatusCodeConverter.GetHttpStatusCode(exception);
 
-            Response.StatusCode = (int)httpStatusCode;
+            var errorResponse = _exceptionToStatusCodeConverter.GetErrorResponse(exception);
 
-            return exception is null
-                ? new ErrorResponseModel()
-                : new ErrorResponseModel(exception);
+            Response.StatusCode = (int)errorResponse.StatusCode;
+
+            return errorResponse;
         }
     }
 }

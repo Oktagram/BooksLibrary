@@ -7,7 +7,7 @@ namespace BooksLibrary.API.Configuration
     {
         public static IServiceCollection AddApiDependencies(this IServiceCollection services)
         {
-            services.AddScoped<IExceptionToStatusCodeConverter, ExceptionToStatusCodeConverter>();
+            services.AddScoped<IErrorResponseBuilder, ErrorResponseBuilder>();
 
             return services;
         }

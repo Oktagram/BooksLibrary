@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MediatR;
+using System;
 
 namespace BooksLibrary.Application.Books.Commands
 {
-    public class AddBookCommand
+    public class AddBookCommand : IRequest
     {
         public int AuthorId { get; set; }
         public int BookGenreId { get; set; }

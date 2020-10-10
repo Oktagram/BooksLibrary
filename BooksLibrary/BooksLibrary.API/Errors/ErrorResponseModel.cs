@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace BooksLibrary.API.Errors
 {
@@ -8,15 +9,17 @@ namespace BooksLibrary.API.Errors
         {
         }
 
-        public ErrorResponseModel(Exception ex)
+        public ErrorResponseModel(HttpStatusCode statusCode, string message, Exception ex)
         {
+            StatusCode = statusCode;
+            Message = message;
             Type = ex.GetType().Name;
-            Message = ex.Message;
             StackTrace = ex.ToString();
         }
 
-        public string Type { get; }
-        public string Message { get; }
-        public string StackTrace { get; }
+        public HttpStatusCode StatusCode { get; private set; }
+        public string Type { get; private set; }
+        public string Message { get; private set; }
+        public string StackTrace { get; private set; }
     }
 }

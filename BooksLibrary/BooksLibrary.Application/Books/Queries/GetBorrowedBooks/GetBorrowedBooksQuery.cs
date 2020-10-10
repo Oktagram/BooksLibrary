@@ -1,11 +1,11 @@
-﻿using BooksLibrary.Domain.Books.Enums;
-using System;
+﻿using BooksLibrary.Application.Books.Models;
+using BooksLibrary.Domain.Books.Enums;
+using MediatR;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BooksLibrary.Application.Books.Queries.GetBorrowedBooks
 {
-    public class GetBorrowedBooksQuery
+    public class GetBorrowedBooksQuery : IRequest<List<BookResponseDto>>
     {
         public string Reader { get; set; }
         public string Librarian { get; set; }

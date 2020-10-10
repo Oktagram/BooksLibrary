@@ -15,13 +15,13 @@ namespace BooksLibrary.Domain.Entities
         public int AuthorId { get; set; }
         public Author Author { get; set; }
 
-        public int BookGenreId { get; set; }
+        public int GenreId { get; set; }
         public BookGenre Genre { get; set; }
 
-        public int BookStatus { get; set; }
+        public int Status { get; set; }
         public string Title { get; set; }
         public int PagesCount { get; set; }
-        public DateTime Year { get; set; }
+        public DateTime PublishedYear { get; set; }
 
         public BookOrder BookOrder { get; set; }
     }

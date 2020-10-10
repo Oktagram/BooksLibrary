@@ -1,14 +1,17 @@
-﻿using BooksLibrary.Domain.Books.Enums;
+﻿using BooksLibrary.Application.Books.Models;
+using BooksLibrary.Domain.Books.Enums;
+using MediatR;
 using System;
+using System.Collections.Generic;
 
 namespace BooksLibrary.Application.Books.Queries.GetBooks
 {
-    public class GetBooksQuery
+    public class GetBooksQuery : IRequest<List<BookResponseDto>>
     {
         public int? AuthorId { get; set; }
         public int? BookGenreId { get; set; }
         public string Title { get; set; }
-        public DateTime? Year { get; set; }
+        public DateTime? PublishedYear { get; set; }
 
         public BookFilter? OrderBy { get; set; }
         public bool IsDesc { get; set; }
