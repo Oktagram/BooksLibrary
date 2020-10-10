@@ -5,7 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="EntityFramework\" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BooksLibrary.Application\BooksLibrary.Application.csproj" />
+    <ProjectReference Include="..\BooksLibrary.Domain\BooksLibrary.Domain.csproj" />
   </ItemGroup>
 
 </Project>

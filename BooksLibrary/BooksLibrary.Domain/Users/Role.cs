@@ -1,21 +1,20 @@
-﻿using System;
+﻿using BooksLibrary.Domain.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
-namespace BooksLibrary.Domain.Entities
+namespace BooksLibrary.Domain.Users
 {
-    public class Author
+    public class Role
     {
-        public Author()
+        public Role()
         {
-            Books = new List<Book>();
+            Users = new List<User>();
         }
 
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public List<Book> Books { get; set; }
+        public List<User> Users { get; set; }
     }
 }
