@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BooksLibrary.API.Errors;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BooksLibrary.API.Configuration
 {
@@ -6,6 +7,8 @@ namespace BooksLibrary.API.Configuration
     {
         public static IServiceCollection AddApiDependencies(this IServiceCollection services)
         {
+            services.AddScoped<IExceptionToStatusCodeConverter, ExceptionToStatusCodeConverter>();
+
             return services;
         }
     }

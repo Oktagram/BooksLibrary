@@ -29,6 +29,11 @@ namespace BooksLibrary.API
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
+            else
+            {
+                app.UseExceptionHandler("/error");
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
 
