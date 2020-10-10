@@ -9,9 +9,9 @@ namespace BooksLibrary.API.Controllers
     [ApiController]
     public class ErrorsController : ControllerBase
     {
-        private readonly IExceptionToStatusCodeConverter _exceptionToStatusCodeConverter;
+        private readonly IErrorResponseBuilder _exceptionToStatusCodeConverter;
 
-        public ErrorsController(IExceptionToStatusCodeConverter exceptionToStatusCodeConverter)
+        public ErrorsController(IErrorResponseBuilder exceptionToStatusCodeConverter)
         {
             _exceptionToStatusCodeConverter = exceptionToStatusCodeConverter;
         }

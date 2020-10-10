@@ -12,6 +12,7 @@ namespace BooksLibrary.Application.Configuration
         {
             AddAssemblyBasedDependencies(services);
 
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ExceptionLoggingBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
             return services;

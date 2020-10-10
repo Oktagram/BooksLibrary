@@ -1,4 +1,5 @@
-﻿using BooksLibrary.Domain.Entities;
+﻿using BooksLibrary.Domain;
+using BooksLibrary.Domain.Entities;
 using BooksLibrary.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,7 @@ namespace BooksLibrary.Persistance.EntityFramework
         public DbSet<Reader> Readers { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

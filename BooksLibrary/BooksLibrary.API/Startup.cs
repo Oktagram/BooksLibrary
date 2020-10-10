@@ -22,6 +22,10 @@ namespace BooksLibrary.API
             services.AddDbContext(Configuration);
 
             services
+                .ConfigureNLog(Configuration)
+                .AddNLogDependency();
+
+            services
                 .AddApplicationDependencies()
                 .AddApiDependencies();
 
