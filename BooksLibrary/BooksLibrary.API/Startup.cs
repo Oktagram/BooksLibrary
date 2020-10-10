@@ -1,4 +1,5 @@
 using BooksLibrary.API.Configuration;
+using BooksLibrary.Application.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,7 +21,9 @@ namespace BooksLibrary.API
         {
             services.AddDbContext(Configuration);
 
-            services.AddApiDependencies();
+            services
+                .AddApplicationDependencies()
+                .AddApiDependencies();
 
             services.AddControllers();
         }
