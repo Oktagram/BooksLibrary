@@ -41,6 +41,8 @@ namespace BooksLibrary.API
             services.AddControllers();
 
             services.AddSwaggerGen();
+
+            ApplicationMapsterConfiguration.Configure();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
