@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using BooksLibrary.API.Configuration;
 using BooksLibrary.API.Configuration.Middlewares;
 using BooksLibrary.Application.Configuration;
@@ -29,7 +30,10 @@ namespace BooksLibrary.API
                 .AddApplicationDependencies()
                 .AddApiDependencies();
 
-            services.AddControllers();
+            services
+                .AddControllers()
+                .AddJsonOptions(options =>
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
             services.AddSwaggerGen();
 
