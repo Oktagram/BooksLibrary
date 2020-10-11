@@ -1,18 +1,14 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using BooksLibrary.API.Auth;
 using BooksLibrary.API.Configuration;
 using BooksLibrary.API.Configuration.Middlewares;
+using BooksLibrary.Application.Books.Notifications.BookAdded;
+using BooksLibrary.Application.Books.Notifications.BookOrdered;
+using BooksLibrary.Application.Books.Notifications.BookRemoved;
 using BooksLibrary.Application.Configuration;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 
 namespace BooksLibrary.API
 {
@@ -46,6 +42,8 @@ namespace BooksLibrary.API
 
             services.AddJwtAuthentication();
 
+            services.AddSignalR();
+
             ApplicationMapsterConfiguration.Configure();
         }
 
@@ -59,6 +57,8 @@ namespace BooksLibrary.API
             app.UseHsts();
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseSwagger();
             app.UseSwaggerUI(options =>
@@ -83,6 +83,10 @@ namespace BooksLibrary.API
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action}/{id?}");
+
+                endpoints.MapHub<BookAddedNotificationHandler>("/book-added");
+                endpoints.MapHub<BookRemovedNotificationHandler>("/book-removed");
+                endpoints.MapHub<BookOrderedNotificationHandler>("/book-ordered");
             });
         }
     }

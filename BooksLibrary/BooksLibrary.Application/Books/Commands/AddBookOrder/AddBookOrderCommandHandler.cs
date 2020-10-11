@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using BooksLibrary.Application.Books.Notifications.BookOrdered;
 using BooksLibrary.Application.Contracts;
 using BooksLibrary.Domain.Authors;
 using BooksLibrary.Domain.Books.Entities;
@@ -13,10 +14,12 @@ namespace BooksLibrary.Application.Books.Commands.AddBookOrder
     public class AddBookOrderCommandHandler : IRequestHandler<AddBookOrderCommand, int>
     {
         private readonly IApplicationDbContext _dbContext;
+        private readonly IMediator _mediator;
 
-        public AddBookOrderCommandHandler(IApplicationDbContext dbContext)
+        public AddBookOrderCommandHandler(IApplicationDbContext dbContext, IMediator mediator)
         {
             _dbContext = dbContext;
+            _mediator = mediator;
         }
 
         public async Task<int> Handle(AddBookOrderCommand request, CancellationToken cancellationToken)
@@ -36,6 +39,11 @@ namespace BooksLibrary.Application.Books.Commands.AddBookOrder
 
             await _dbContext.Books.AddAsync(book, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
+
+            await _mediator.Publish(new BookOrderedNotificaiton
+            {
+                BookId = book.Id
+            }, cancellationToken);
 
             return book.BookOrder.Id;
         }
