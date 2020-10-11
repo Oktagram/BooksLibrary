@@ -7,8 +7,8 @@ namespace BooksLibrary.Application.Books.Queries.GetBorrowedBooks
 {
     public class GetBorrowedBooksQuery : IRequest<List<BookResponseDto>>
     {
-        public string Reader { get; set; }
-        public string Librarian { get; set; }
+        public string ReaderName { get; set; }
+        public string LibrarianName { get; set; }
         public string Title { get; set; }
 
         public BorrowedBookFilter? OrderBy { get; set; }

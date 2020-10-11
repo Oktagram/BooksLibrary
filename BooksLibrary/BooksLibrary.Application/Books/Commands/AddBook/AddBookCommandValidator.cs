@@ -8,7 +8,10 @@ namespace BooksLibrary.Application.Books.Commands.AddBook
         {
             RuleFor(b => b.AuthorId).NotEmpty();
             RuleFor(b => b.BookGenreId).NotEmpty();
-            RuleFor(b => b.Title).NotEmpty();
+
+            RuleFor(b => b.Title)
+                .NotEmpty()
+                .MaximumLength(500);
 
             RuleFor(b => b.PagesCount)
                 .NotEmpty()

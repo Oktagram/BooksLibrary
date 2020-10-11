@@ -6,9 +6,9 @@ namespace BooksLibrary.Application.Books.Queries.GetBooks
     {
         public GetBooksQueryValidator()
         {
-            When(b => b.AuthorId.HasValue, () =>
+            When(b => !string.IsNullOrEmpty(b.AuthorName), () =>
             {
-                RuleFor(b => b.AuthorId.Value).NotEmpty();
+                RuleFor(b => b.AuthorName).MaximumLength(500);
             });
 
             When(b => b.BookGenreId.HasValue, () =>
@@ -19,6 +19,11 @@ namespace BooksLibrary.Application.Books.Queries.GetBooks
             When(b => b.PublishedYear.HasValue, () =>
             {
                 RuleFor(b => b.PublishedYear.Value).NotEmpty();
+            });
+
+            When(b => !string.IsNullOrEmpty(b.Title), () =>
+            {
+                RuleFor(b => b.Title).MaximumLength(500);
             });
         }
     }
