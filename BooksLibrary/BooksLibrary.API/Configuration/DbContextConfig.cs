@@ -1,4 +1,5 @@
-﻿using BooksLibrary.Persistance.EntityFramework;
+﻿using BooksLibrary.Application.Contracts;
+using BooksLibrary.Persistance.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,8 @@ namespace BooksLibrary.API.Configuration
 
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(connectionString));
+
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
             return services;
         }

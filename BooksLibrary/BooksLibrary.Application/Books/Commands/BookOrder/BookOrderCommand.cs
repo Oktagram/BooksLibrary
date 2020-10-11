@@ -3,7 +3,7 @@ using System;
 
 namespace BooksLibrary.Application.Books.Commands.BookOrder
 {
-    public class BookOrderCommand : IRequest
+    public class BookOrderCommand : IRequest<int>
     {
         public int AuthorId { get; set; }
         public int BookGenreId { get; set; }

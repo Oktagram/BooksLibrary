@@ -1,4 +1,5 @@
-﻿using BooksLibrary.Domain.Authors;
+﻿using BooksLibrary.Application.Contracts;
+using BooksLibrary.Domain.Authors;
 using BooksLibrary.Domain.Books.Entities;
 using BooksLibrary.Domain.Logs;
 using BooksLibrary.Domain.Users;
@@ -10,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BooksLibrary.Persistance.EntityFramework
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

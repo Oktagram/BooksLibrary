@@ -17,9 +17,9 @@ namespace BooksLibrary.API.Errors
             StackTrace = ex.ToString();
         }
 
-        public HttpStatusCode StatusCode { get; private set; }
-        public string Type { get; private set; }
-        public string Message { get; private set; }
-        public string StackTrace { get; private set; }
+        public HttpStatusCode StatusCode { get; }
+        public string Type { get; }
+        public string Message { get; }
+        public string StackTrace { get; }
     }
 }

@@ -3,6 +3,7 @@ using MediatR;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using BooksLibrary.Application.Exceptions;
 using NLog;
 
 namespace BooksLibrary.Application.Configuration.PipelineBehaviors
@@ -23,13 +24,13 @@ namespace BooksLibrary.Application.Configuration.PipelineBehaviors
             {
                 return await next();
             }
-            catch (ValidationException)
+            catch (Exception ex) when (ex is ValidationException || ex is NotFoundException)
             {
                 throw;
             }
             catch (Exception ex)
             {
-                var message = $"Exception in request: {request}";
+                var message = $"Exception in request: {request} {ex.Message}";
 
                 _logger.Error(ex, message);
 

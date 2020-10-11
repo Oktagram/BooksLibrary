@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace BooksLibrary.Application.Books.Commands.AddBook
 {
-    public class AddBookCommandHandler : IRequestHandler<AddBookCommand>
+    public class AddBookCommandHandler : IRequestHandler<AddBookCommand, int>
     {
-        public Task<Unit> Handle(AddBookCommand request, CancellationToken cancellationToken)
+        public Task<int> Handle(AddBookCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

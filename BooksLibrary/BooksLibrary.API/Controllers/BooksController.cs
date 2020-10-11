@@ -1,41 +1,65 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using BooksLibrary.Application.Books.Commands.AddBook;
+using BooksLibrary.Application.Books.Commands.BookOrder;
+using BooksLibrary.Application.Books.Commands.RemoveBook;
+using BooksLibrary.Application.Books.Models;
+using BooksLibrary.Application.Books.Queries.GetBooks;
+using BooksLibrary.Application.Books.Queries.GetBorrowedBooks;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BooksLibrary.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class BooksController : ControllerBase
     {
-        [HttpGet("/books")]
-        public async Task<IActionResult> Get()
+        private readonly IMediator _mediator;
+
+        public BooksController(IMediator mediator)
         {
-            throw new NotImplementedException();
+            _mediator = mediator;
+        }
+
+        [HttpGet("/books")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<List<BookResponseDto>> Get(GetBooksQuery request)
+        {
+            return await _mediator.Send(request);
         }
 
         [HttpGet("/books/borrowed")]
-        public async Task<IActionResult> GetBorrowed()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<List<BookResponseDto>> GetBorrowed(GetBorrowedBooksQuery request)
         {
-            throw new NotImplementedException();
+            return await _mediator.Send(request);
         }
 
         [HttpPost("/books")]
-        public async Task<IActionResult> AddBook()
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public async Task<IActionResult> AddBook(AddBookCommand request)
         {
-            throw new NotImplementedException();
+            var bookId = await _mediator.Send(request);
+            return CreatedAtAction(nameof(AddBook), new { id = bookId });
         }
 
         [HttpPost("/books/order")]
-        public async Task<IActionResult> BookOrder()
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public async Task<IActionResult> BookOrder(BookOrderCommand request)
         {
-            throw new NotImplementedException();
+            var bookOrderId = await _mediator.Send(request);
+            return CreatedAtAction(nameof(BookOrder), new { id = bookOrderId });
         }
 
         [HttpDelete("/books/{id}")]
-        public async Task<IActionResult> RemoveBook()
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> RemoveBook(int id)
         {
-            throw new NotImplementedException();
+            await _mediator.Send(new RemoveBookCommand(id));
+            return NoContent();
         }
     }
 }
