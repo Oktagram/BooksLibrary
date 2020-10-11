@@ -1,5 +1,5 @@
-﻿using BooksLibrary.Domain.Enums;
-using System;
+﻿using System;
+using BooksLibrary.Domain.Books.Enums;
 
 namespace BooksLibrary.Application.Books.Models
 {

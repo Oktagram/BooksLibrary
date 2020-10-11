@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BooksLibrary.Domain
+namespace BooksLibrary.Domain.Logs
 {
     public class Log
     {

@@ -1,7 +1,6 @@
-﻿using BooksLibrary.Domain.Users;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace BooksLibrary.Domain.Entities
+namespace BooksLibrary.Domain.Users
 {
     public class User
     {

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using BooksLibrary.Domain.Books.Entities;
 
-namespace BooksLibrary.Domain.Entities
+namespace BooksLibrary.Domain.Authors
 {
     public class Author
     {

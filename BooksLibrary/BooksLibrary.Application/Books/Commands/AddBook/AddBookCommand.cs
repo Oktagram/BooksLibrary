@@ -1,7 +1,7 @@
-﻿using MediatR;
-using System;
+﻿using System;
+using MediatR;
 
-namespace BooksLibrary.Application.Books.Commands
+namespace BooksLibrary.Application.Books.Commands.AddBook
 {
     public class AddBookCommand : IRequest
     {

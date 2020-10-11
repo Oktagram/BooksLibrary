@@ -1,11 +1,8 @@
-﻿using BooksLibrary.Domain.Enums;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using BooksLibrary.Domain.Authors;
 
-namespace BooksLibrary.Domain.Entities
+namespace BooksLibrary.Domain.Books.Entities
 {
     public class Book
     {

@@ -1,5 +1,7 @@
 ﻿using BooksLibrary.Domain;
-using BooksLibrary.Domain.Entities;
+using BooksLibrary.Domain.Authors;
+using BooksLibrary.Domain.Books.Entities;
+using BooksLibrary.Domain.Logs;
 using BooksLibrary.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
