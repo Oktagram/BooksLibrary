@@ -11,7 +11,7 @@ namespace BooksLibrary.Application.Books.Models
         public string AuthorName { get; set; }
 
         public int GenreId { get; set; }
-        public int GenreName { get; set; }
+        public string GenreName { get; set; }
 
         public BookStatus Status { get; set; }
         public string Title { get; set; }
