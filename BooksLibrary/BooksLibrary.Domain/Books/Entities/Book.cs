@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using BooksLibrary.Domain.Authors;
 using BooksLibrary.Domain.Books.Enums;
 
@@ -7,7 +6,6 @@ namespace BooksLibrary.Domain.Books.Entities
 {
     public class Book
     {
-        [Key]
         public int Id { get; set; }
 
         public int AuthorId { get; set; }

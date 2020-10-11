@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using BooksLibrary.Domain.Books.Entities;
 
 namespace BooksLibrary.Domain.Users
@@ -10,9 +9,9 @@ namespace BooksLibrary.Domain.Users
         public Reader()
         {
             BorrowedBooks = new List<BorrowedBook>();
+            BookOrders = new List<BookOrder>();
         }
 
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime MemberSince { get; set; }
@@ -21,5 +20,6 @@ namespace BooksLibrary.Domain.Users
         public User User { get; set; }
 
         public List<BorrowedBook> BorrowedBooks { get; set; }
+        public List<BookOrder> BookOrders { get; set; }
     }
 }

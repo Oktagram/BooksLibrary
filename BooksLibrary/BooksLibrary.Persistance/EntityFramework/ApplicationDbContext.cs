@@ -1,8 +1,11 @@
-﻿using BooksLibrary.Domain;
-using BooksLibrary.Domain.Authors;
+﻿using BooksLibrary.Domain.Authors;
 using BooksLibrary.Domain.Books.Entities;
 using BooksLibrary.Domain.Logs;
 using BooksLibrary.Domain.Users;
+using BooksLibrary.Persistance.EntityFramework.TypeConfiguration.Authors;
+using BooksLibrary.Persistance.EntityFramework.TypeConfiguration.Books;
+using BooksLibrary.Persistance.EntityFramework.TypeConfiguration.Logs;
+using BooksLibrary.Persistance.EntityFramework.TypeConfiguration.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace BooksLibrary.Persistance.EntityFramework
@@ -28,11 +31,19 @@ namespace BooksLibrary.Persistance.EntityFramework
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder
-                .Entity<BorrowedBook>()
-                .HasOne(bb => bb.Reader)
-                .WithMany(r => r.BorrowedBooks)
-                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new BookGenreConfiguration());
+            modelBuilder.ApplyConfiguration(new BookOrderConfiguration());
+            modelBuilder.ApplyConfiguration(new BorrowedBookConfiguration());
+
+            modelBuilder.ApplyConfiguration(new LogConfiguration());
+
+            modelBuilder.ApplyConfiguration(new LibrarianConfiguration());
+            modelBuilder.ApplyConfiguration(new ReaderConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

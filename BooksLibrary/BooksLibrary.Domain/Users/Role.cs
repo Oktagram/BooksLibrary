@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace BooksLibrary.Domain.Users
 {
@@ -10,7 +9,6 @@ namespace BooksLibrary.Domain.Users
             Users = new List<User>();
         }
 
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
 

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using BooksLibrary.Domain.Users;
 
 namespace BooksLibrary.Domain.Books.Entities
 {
     public class BorrowedBook
     {
-        [Key]
         public int Id { get; set; }
 
         public int BookId { get; set; }

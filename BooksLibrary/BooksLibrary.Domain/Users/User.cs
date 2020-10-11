@@ -1,10 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace BooksLibrary.Domain.Users
+﻿namespace BooksLibrary.Domain.Users
 {
     public class User
     {
-        [Key]
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

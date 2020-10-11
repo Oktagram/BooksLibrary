@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using BooksLibrary.Domain.Books.Entities;
 
 namespace BooksLibrary.Domain.Authors
@@ -11,7 +10,6 @@ namespace BooksLibrary.Domain.Authors
             Books = new List<Book>();
         }
 
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
 
