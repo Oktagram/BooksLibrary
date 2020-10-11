@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 using MediatR;
-using NLog;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using NLog;
 
 namespace BooksLibrary.Application.Configuration.PipelineBehaviors
 {
@@ -29,8 +29,7 @@ namespace BooksLibrary.Application.Configuration.PipelineBehaviors
             }
             catch (Exception ex)
             {
-                var name = typeof(TRequest).Name;
-                var message = $"Exception in request: {name}, {request}";
+                var message = $"Exception in request: {request}";
 
                 _logger.Error(ex, message);
 
