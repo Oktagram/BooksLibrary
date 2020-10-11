@@ -17,7 +17,6 @@ namespace BooksLibrary.Application.Contracts
         DbSet<BorrowedBook> BorrowedBooks { get; set; }
         DbSet<Librarian> Librarians { get; set; }
         DbSet<Reader> Readers { get; set; }
-        DbSet<Role> Roles { get; set; }
         DbSet<User> Users { get; set; }
         DbSet<Log> Logs { get; set; }
 

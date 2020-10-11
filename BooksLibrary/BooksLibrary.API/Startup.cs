@@ -1,11 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Text.Json.Serialization;
+using BooksLibrary.API.Auth;
 using BooksLibrary.API.Configuration;
 using BooksLibrary.API.Configuration.Middlewares;
 using BooksLibrary.Application.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace BooksLibrary.API
 {
@@ -35,7 +42,9 @@ namespace BooksLibrary.API
                 .AddJsonOptions(options =>
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
-            services.AddSwaggerGen();
+            services.AddSwagger();
+
+            services.AddJwtAuthentication();
 
             ApplicationMapsterConfiguration.Configure();
         }
@@ -65,6 +74,7 @@ namespace BooksLibrary.API
                 .AllowAnyHeader()
                 .AllowAnyMethod());
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

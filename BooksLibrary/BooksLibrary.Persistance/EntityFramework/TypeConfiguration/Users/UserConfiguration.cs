@@ -12,7 +12,6 @@ namespace BooksLibrary.Persistance.EntityFramework.TypeConfiguration.Users
 
             builder.HasOne(u => u.Reader);
             builder.HasOne(u => u.Librarian);
-            builder.HasOne(u => u.Role);
 
             builder
                 .Property(u => u.Login)

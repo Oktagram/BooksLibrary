@@ -26,7 +26,6 @@ namespace BooksLibrary.Persistance.EntityFramework
         public DbSet<BorrowedBook> BorrowedBooks { get; set; }
         public DbSet<Librarian> Librarians { get; set; }
         public DbSet<Reader> Readers { get; set; }
-        public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Log> Logs { get; set; }
 
@@ -43,7 +42,6 @@ namespace BooksLibrary.Persistance.EntityFramework
 
             modelBuilder.ApplyConfiguration(new LibrarianConfiguration());
             modelBuilder.ApplyConfiguration(new ReaderConfiguration());
-            modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
