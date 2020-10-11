@@ -18,7 +18,7 @@ namespace BooksLibrary.Application.Books.Commands.BookOrder
                 .NotEmpty()
                 .GreaterThan(0);
 
-            RuleFor(bo => bo.Year).NotEmpty();
+            RuleFor(bo => bo.PublishedYear).NotEmpty();
 
             RuleFor(bo => bo.ExpectedDate)
                 .NotEmpty()

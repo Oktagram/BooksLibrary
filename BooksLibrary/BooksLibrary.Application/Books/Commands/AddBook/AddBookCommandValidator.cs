@@ -17,7 +17,7 @@ namespace BooksLibrary.Application.Books.Commands.AddBook
                 .NotEmpty()
                 .GreaterThan(0);
 
-            RuleFor(b => b.Year).NotEmpty();
+            RuleFor(b => b.PublishedYear).NotEmpty();
         }
     }
 }
