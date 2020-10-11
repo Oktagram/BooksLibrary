@@ -1,13 +1,13 @@
 ﻿using System;
 using FluentValidation;
 
-namespace BooksLibrary.Application.Books.Commands.BookOrder
+namespace BooksLibrary.Application.Books.Commands.AddBookOrder
 {
-    public class BookOrderCommandValidator : AbstractValidator<BookOrderCommand>
+    public class AddBookOrderCommandValidator : AbstractValidator<AddBookOrderCommand>
     {
-        public BookOrderCommandValidator()
+        public AddBookOrderCommandValidator()
         {
-            RuleFor(bo => bo.AuthorId).NotEmpty();
+            RuleFor(bo => bo.AuthorName).NotEmpty().MaximumLength(500);
             RuleFor(bo => bo.BookGenreId).NotEmpty();
 
             RuleFor(bo => bo.Title)
@@ -20,9 +20,10 @@ namespace BooksLibrary.Application.Books.Commands.BookOrder
 
             RuleFor(bo => bo.PublishedYear).NotEmpty();
 
-            RuleFor(bo => bo.ExpectedDate)
+            RuleFor(bo => bo.ExpectedDate.Date)
                 .NotEmpty()
-                .GreaterThanOrEqualTo(DateTime.Now);
+                .GreaterThan(DateTime.Now.Date)
+                .WithMessage("Expected date must be future date");
 
             RuleFor(bo => bo.ReaderId).NotEmpty();
         }

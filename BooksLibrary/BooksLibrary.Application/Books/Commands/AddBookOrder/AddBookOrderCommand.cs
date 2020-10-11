@@ -1,11 +1,11 @@
-﻿using MediatR;
-using System;
+﻿using System;
+using MediatR;
 
-namespace BooksLibrary.Application.Books.Commands.BookOrder
+namespace BooksLibrary.Application.Books.Commands.AddBookOrder
 {
-    public class BookOrderCommand : IRequest<int>
+    public class AddBookOrderCommand : IRequest<int>
     {
-        public int AuthorId { get; set; }
+        public string AuthorName { get; set; }
         public int BookGenreId { get; set; }
         public string Title { get; set; }
         public int PagesCount { get; set; }

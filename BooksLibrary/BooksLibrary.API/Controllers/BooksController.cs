@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BooksLibrary.Application.Books.Commands.AddBook;
-using BooksLibrary.Application.Books.Commands.BookOrder;
+using BooksLibrary.Application.Books.Commands.AddBookOrder;
 using BooksLibrary.Application.Books.Commands.RemoveBook;
 using BooksLibrary.Application.Books.Models;
 using BooksLibrary.Application.Books.Queries.GetBooks;
@@ -47,7 +47,7 @@ namespace BooksLibrary.API.Controllers
 
         [HttpPost("/books/order")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> BookOrder(BookOrderCommand request)
+        public async Task<IActionResult> BookOrder(AddBookOrderCommand request)
         {
             var bookOrderId = await _mediator.Send(request);
             return CreatedAtAction(nameof(BookOrder), new { id = bookOrderId });
