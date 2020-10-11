@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using BooksLibrary.Domain.Authors;
+using BooksLibrary.Domain.Books.Enums;
 
 namespace BooksLibrary.Domain.Books.Entities
 {
@@ -15,7 +16,7 @@ namespace BooksLibrary.Domain.Books.Entities
         public int GenreId { get; set; }
         public BookGenre Genre { get; set; }
 
-        public int Status { get; set; }
+        public BookStatus Status { get; set; }
         public string Title { get; set; }
         public int PagesCount { get; set; }
         public DateTime PublishedYear { get; set; }
