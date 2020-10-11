@@ -19,7 +19,7 @@ namespace BooksLibrary.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("/sign-in")]
+        [HttpPost("/auth/sign-in")]
         public async Task<AuthResponseDto> SignIn([FromQuery] SignInCommand request)
         {
             var user = await _mediator.Send(request);

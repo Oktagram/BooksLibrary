@@ -1,4 +1,9 @@
-﻿using BooksLibrary.Domain.Users;
+﻿using System;
+using System.Collections.Generic;
+using BooksLibrary.Domain.Authors;
+using BooksLibrary.Domain.Books.Entities;
+using BooksLibrary.Domain.Books.Enums;
+using BooksLibrary.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
