@@ -1,19 +1,10 @@
-using System;
-using System.Globalization;
-using System.Threading.Tasks;
 using BooksLibrary.API.Configuration;
 using BooksLibrary.API.Configuration.Middlewares;
-using BooksLibrary.API.Errors;
 using BooksLibrary.Application.Configuration;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json;
 
 namespace BooksLibrary.API
 {
