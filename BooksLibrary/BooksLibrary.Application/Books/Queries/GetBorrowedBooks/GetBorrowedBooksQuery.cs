@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BooksLibrary.Application.Books.Queries.GetBorrowedBooks
 {
-    public class GetBorrowedBooksQuery : IRequest<List<BookResponseDto>>
+    public class GetBorrowedBooksQuery : IRequest<Dictionary<string, List<BorrowedBookResponseDto>>>
     {
         public string ReaderName { get; set; }
         public string LibrarianName { get; set; }

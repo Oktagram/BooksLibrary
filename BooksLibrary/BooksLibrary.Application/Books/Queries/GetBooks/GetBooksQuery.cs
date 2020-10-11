@@ -3,7 +3,6 @@ using BooksLibrary.Domain.Books.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
-using BooksLibrary.Domain.Books.Entities;
 
 namespace BooksLibrary.Application.Books.Queries.GetBooks
 {

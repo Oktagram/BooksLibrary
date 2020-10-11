@@ -25,14 +25,16 @@ namespace BooksLibrary.API.Controllers
 
         [HttpGet("/books")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<Dictionary<string, List<BookResponseDto>>> Get([FromQuery] GetBooksQuery request)
+        public async Task<Dictionary<string, List<BookResponseDto>>> Get(
+            [FromQuery] GetBooksQuery request)
         {
             return await _mediator.Send(request);
         }
 
         [HttpGet("/books/borrowed")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<List<BookResponseDto>> GetBorrowed([FromQuery] GetBorrowedBooksQuery request)
+        public async Task<Dictionary<string, List<BorrowedBookResponseDto>>> GetBorrowed(
+            [FromQuery] GetBorrowedBooksQuery request)
         {
             return await _mediator.Send(request);
         }
