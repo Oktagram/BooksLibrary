@@ -2,7 +2,7 @@
 
 Before startup configure Connection string in appsettings.json (DefaultConnection).
 
-Execute /database/seed from Swagger to insert data into db.
+Execute /database/seed from Swagger to insert data into db. Use may use it several times if you want more data.
 
 There are 2 roles: Reader and Librarian.
 
